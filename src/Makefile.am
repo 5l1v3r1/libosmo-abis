@@ -37,6 +37,7 @@ libosmotrau_la_CFLAGS = $(AM_CFLAGS) $(ORTP_CFLAGS)
 libosmotrau_la_LDFLAGS = $(AM_LDFLAGS) -version-info $(TRAU_LIBVERSION)
 libosmotrau_la_LIBADD = $(COMMONLIBS) $(ORTP_LIBS)
 libosmotrau_la_SOURCES = trau/osmo_ortp.c \
-			 trau/trau_frame.c
+			 trau/trau_frame.c \
+			 trau/trau_sync.c
 
 noinst_HEADERS = flip.h trau/ubit_buf.h
