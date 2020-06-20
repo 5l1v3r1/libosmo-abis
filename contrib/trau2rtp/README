@@ -1,0 +1,19 @@
+this is a small utility program illustrating the use of the new (2020)
+TRAU related bloks like I.460 mux, TRAU frame synchronizer, TRAU frame
+decoder and trau2rtp conversion.
+
+The input data (*.log.bz2) was generated using strace on an osmo-nitb process
+while a MO-to-MT call was running on two sub-slots of TS2.
+
+The strace log is converted to a binary stream of the raw 64bit E1 slot
+using strace-write-parse.py
+
+You can use the too like this:
+
+* start osmo-gapk as a RTP to ALSA sink like
+  osmo-gapk -I 127.0.0.1/9999 -f gsm -g rawpcm-s16le  -A default     # for FR
+  osmo-gapk -I 127.0.0.1/9999 -f rtp-efr -g rawpcm-s16le  -A default # for EFR
+
+* run trau2rtp to read the bin file and generate RTP:
+  ./trau2rtp e1_ts2_fr.bin  # for FR
+  ./trau2rtp e1_ts2_efr.bin # for EFR
