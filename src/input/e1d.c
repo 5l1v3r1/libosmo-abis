@@ -23,6 +23,7 @@
  */
 
 #include "config.h"
+#include "flip.h"
 
 #ifdef HAVE_E1D
 
